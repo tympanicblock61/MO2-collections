@@ -361,11 +361,26 @@ class ModInstaller:
                     return
         QTimer.singleShot(100, lambda: self._auto_confirm_install_dialog(mod))
 
+    def _find_fomod_config(self, extract_path: str) -> str | None:
+        for entry in os.scandir(extract_path):
+            if entry.is_dir() and entry.name.lower() == "fomod":
+                for f in os.scandir(entry.path):
+                    if f.is_file() and f.name.lower() == "moduleconfig.xml":
+                        return f.path
+        return None
+    
     def fomod_preprocessor(self, mod_path, choices):
         extract_path = os.path.join(self.__plugin.organizer.downloadsPath(), "extracted")
         extract_all(mod_path, extract_path)
 
-        xml_path = os.path.join(extract_path, "fomod", "ModuleConfig.xml")
+        # added because some mods dont use lowercase `fomod` and instead whatever they want like `FOMod`
+        xml_path = self._find_fomod_config(extract_path)
+        
+        if xml_path is None:
+            logger.warning(f"[!] No ModuleConfig.xml found in {extract_path} - skipping fomod preprocessing")
+            shutil.rmtree(extract_path)
+            return
+        
         parser   = etree.XMLParser(remove_blank_text=True)
         tree     = etree.parse(xml_path, parser)
         root     = tree.getroot()
