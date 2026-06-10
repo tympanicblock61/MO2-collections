@@ -54,7 +54,7 @@ Supported browsers for cookie extraction: Chrome, Edge, Brave.
 
 ## Installation
 
-1. Download the `nexus_collections` and `nxmhandler` folders and place them in your
+1. Download the `nexus_collections`, `nxmhandler` and `data` folders and place them in your
    MO2 `plugins` directory.
 
 2. Inside `nxmhandler/app`, create a file named `nxmhandler.ini` with the following
