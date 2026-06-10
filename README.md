@@ -38,7 +38,7 @@ ban, or other action taken by Nexus Mods as a result of misuse. Use responsibly.
 ## Planned
 
 - Support for collection groups
-- Optimise or replace the fomod preprocessor with GUI automation
+- Optimize or replace the fomod preprocessor with GUI automation
 - Session token refresh when cookies expire
 
 ## How It Works
