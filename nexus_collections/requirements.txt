@@ -1,0 +1,6 @@
+requests~=2.32.4
+py7zr~=1.0.0
+curl_cffi~=0.15.0
+lxml~=6.0.0
+pythonforwindows~=1.0.4
+pysqlite3~=0.6.0
