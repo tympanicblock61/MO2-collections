@@ -372,7 +372,16 @@ class ModInstaller:
     
     def fomod_preprocessor(self, mod_path, choices):
         extract_path = os.path.join(self.__plugin.organizer.downloadsPath(), "extracted")
+        if os.path.exists(extract_path):
+            shutil.rmtree(extract_path)
+        os.makedirs(extract_path, exist_ok=True)
+
         extract_all(mod_path, extract_path)
+
+        # handles zips that have a single folder zipped instead of the zip being that folder
+        entries = [e for e in os.scandir(extract_path) if not e.name.startswith('.')]
+        if len(entries) == 1 and entries[0].is_dir():
+            extract_path = entries[0].path
 
         # added because some mods dont use lowercase `fomod` and instead whatever they want like `FOMod`
         xml_path = self._find_fomod_config(extract_path)
