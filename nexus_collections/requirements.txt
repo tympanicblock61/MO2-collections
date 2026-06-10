@@ -4,3 +4,4 @@ curl_cffi~=0.15.0
 lxml~=6.0.0
 pythonforwindows~=1.0.4
 pysqlite3~=0.6.0
+pycryptodome~=3.23.0
