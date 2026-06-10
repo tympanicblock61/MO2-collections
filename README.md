@@ -4,6 +4,27 @@ A Mod Organizer 2 plugin that brings native Nexus Mods Collections support to MO
 Click a collection link in your browser and MO2 handles everything - downloading,
 installing, and ordering every mod automatically.
 
+## Legal
+
+This is an unofficial, community-developed plugin and is not affiliated with,
+endorsed by, or supported by Nexus Mods.
+
+Use of this plugin is subject to the [Nexus Mods Terms of Service](https://help.nexusmods.com/article/18-terms-of-service)
+and [API Terms of Use](https://help.nexusmods.com/article/114-api-terms-of-use).
+By using this plugin you agree to abide by those terms. Key points:
+
+- The NexusMods API is used solely to facilitate downloading mods you already
+  have access to under your own account. No content is redistributed.
+- Your API key and session token are used only to authenticate requests to
+  NexusMods on your behalf. They are never sent to any third-party server.
+- This plugin does not circumvent any download restrictions. Free account users
+  are subject to the same daily download limits as they would be using the website.
+- Do not use this plugin to bulk-download content you do not intend to use, as
+  this may violate the API fair-use policy.
+
+The developers of this plugin accept no liability for any account suspension,
+ban, or other action taken by Nexus Mods as a result of misuse. Use responsibly.
+
 ## Features
 
 - **One-click install** - open a collection link from the Nexus website and the plugin does the rest
@@ -94,3 +115,4 @@ When reporting, it helps to also mention:
 - Whether you are on a free or premium account
 - Which browser you use (for free account cookie extraction)
 - What step the process appeared to stop at
+
