@@ -141,16 +141,24 @@ def write_all(input_folder: str, archive_path: str):
             for root, dirs, files in os.walk(input_folder):
                 for file in files:
                     full_path = os.path.join(root, file)
-                    rel_path = os.path.relpath(full_path, input_folder)
+                    rel_path  = os.path.relpath(full_path, input_folder)
                     zipf.write(full_path, rel_path)
     else:
         try:
             with py7zr.SevenZipFile(archive_path, 'w') as e:
-                e.writeall(input_folder)
-        except:
+                for root, dirs, files in os.walk(input_folder):
+                    for file in files:
+                        full_path = os.path.join(root, file)
+                        arcname   = os.path.relpath(full_path, input_folder)
+                        e.write(full_path, arcname)
+        except Exception:
             # why the fuck does 7zip need admin
             if not os.path.exists(_7z):
                 os.makedirs(os.path.dirname(_7z), exist_ok=True)
                 download_file("https://www.7-zip.org/a/7zr.exe", _7z)
 
-            subprocess.run([_7z, "a", os.path.abspath(archive_path), os.path.abspath(os.path.join(input_folder, '*'))], check=True)
+            subprocess.run(
+                [_7z, "a", archive_path, os.path.join(input_folder, '*')],
+                check=True,
+                cwd=input_folder,
+            )
