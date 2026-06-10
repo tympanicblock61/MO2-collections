@@ -246,9 +246,10 @@ class ModInstaller:
             if self.__plugin.auto_install:
                 QTimer.singleShot(0, lambda: self._auto_confirm_install_dialog(entry["mod"]))
             installed = self.__plugin.organizer.installMod(path)
-            version = mobase.VersionInfo()
-            version.parse(mod.get("version"))
-            installed.setVersion(version)
+            if mod.get("version") is not None:
+                version = mobase.VersionInfo()
+                version.parse(mod.get("version"))
+                installed.setVersion(version)
 
         except Exception as e:
             logger.error(f"[!] _do_install failed for {mod['name']}: {e}")
