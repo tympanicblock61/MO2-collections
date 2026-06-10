@@ -1,0 +1,133 @@
+query GetCollection($slug: String!, $viewAdultContent: Boolean, $domainName: String) {
+  collection(slug: $slug, viewAdultContent: $viewAdultContent, domainName: $domainName) {
+    id
+    slug
+    name
+    endorsements
+    user {
+      name
+      avatar
+      memberId
+    }
+    game {
+      domainName
+    }
+    createdAt
+    updatedAt
+    tileImage {
+      url
+    }
+    revisions {
+      id
+      revisionNumber
+      revisionStatus
+    }
+    description
+    summary
+    forumTopic {
+      postsCount
+    }
+    commentLink
+    overallRating
+    overallRatingCount
+    recentRating
+    recentRatingCount
+    currentRevision {
+      id
+      revisionNumber
+      adultContent
+      collectionChangelog {
+        createdAt
+        description
+        id
+      }
+      createdAt
+      updatedAt
+      downloadLink
+      fileSize
+      gameVersions {
+        id
+        reference
+      }
+      rating {
+        average
+        total
+      }
+      metadata {
+        ratingValue
+      }
+      status
+      modFiles {
+        file {
+          mod {
+            author
+            category
+            modCategory {
+              id
+              name
+            }
+            name
+            pictureUrl
+            status
+            summary
+            uploader {
+              name
+              avatar
+              memberId
+            }
+            version
+          }
+          modId
+          fileId
+          size
+          name
+          version
+          description
+          uri
+          game {
+            domainName
+          }
+          owner {
+            name
+            avatar
+            memberId
+          }
+        }
+      }
+      collection {
+        id
+        slug
+        name
+        endorsements
+        user {
+          name
+          avatar
+          memberId
+        }
+        game {
+          domainName
+        }
+        createdAt
+        updatedAt
+        tileImage {
+          url
+        }
+        revisions {
+          id
+          revisionNumber
+          revisionStatus
+        }
+        description
+        summary
+        forumTopic {
+          postsCount
+        }
+        commentLink
+        overallRating
+        overallRatingCount
+        recentRating
+        recentRatingCount
+      }
+    }
+  }
+}

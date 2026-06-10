@@ -1,0 +1,127 @@
+query collectionRevision(
+  $slug: String!,
+  $revision: Int,
+  $viewAdultContent: Boolean,
+  $domainName: String
+) {
+  collectionRevision(
+    slug: $slug,
+    revision: $revision,
+    viewAdultContent: $viewAdultContent,
+    domainName: $domainName
+  ) {
+    adultContent
+    assetsSizeBytes
+    collection {
+      id
+      slug
+      name
+      endorsements
+      user {
+        name
+        avatar
+        memberId
+      }
+      game {
+        domainName
+      }
+      createdAt
+      updatedAt
+      tileImage {
+        url
+      }
+      revisions {
+        id
+        revisionNumber
+        revisionStatus
+      }
+      description
+      summary
+      forumTopic {
+        postsCount
+      }
+      commentLink
+      overallRating
+      overallRatingCount
+      recentRating
+      recentRatingCount
+    }
+    collectionChangelog {
+      collectionRevisionId
+      createdAt
+      description
+      id
+      revisionNumber
+      updatedAt
+    }
+    collectionId
+    collectionSchema {
+      createdAt
+      id
+      updatedAt
+      version
+    }
+    collectionSchemaId
+    contentPreviewLink
+    createdAt
+    discardedAt
+    downloadLink
+    externalResources {
+      author
+      collectionRevisionId
+      fileExpression
+      id
+      name
+      optional
+      resourceType
+      resourceUrl
+      version
+    }
+    fileSize
+    gameVersions {
+      id
+      reference
+    }
+    id
+    installationInfo
+    latest
+    metadata {
+      downloadedAt
+      ratingValue
+    }
+    modAuthors
+    modCount
+    modFiles {
+      collectionRevisionId
+      file
+      fileId
+      gameId
+      id
+      optional
+      updatePolicy
+      version
+    }
+    overallRating
+    overallRatingCount
+    rating {
+      average
+      positive
+      total
+    }
+    retractionReason {
+      collectionRevisionId
+      createdAt
+      id
+      reason
+      updatedAt
+    }
+    revision
+    revisionNumber
+    revisionStatus
+    status
+    totalDownloads
+    totalSize
+    uniqueDownloads
+    updatedAt
+  }
+}
